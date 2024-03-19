@@ -1,0 +1,121 @@
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Text("Go Graffiti")
+                .font(.system(size: 70))
+                .background(Color.Orange)
+                .foregroundColor(.white)
+                .padding()
+            
+            Spacer()
+
+            HStack {
+                NavigationLink(destination: HomeView()) {
+                    Text("Home")
+                        .foregroundColor(.white)
+                        .padding(25)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+                
+                NavigationLink(destination: HistoryView()) {
+                    Text("History")
+                        .foregroundColor(.white)
+                        .padding(25)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+
+                Spacer()
+
+                NavigationLink(destination: IdeasView()) {
+                    Text("Ideas")
+                        .foregroundColor(.white)
+                        .padding(25)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+                
+                NavigationLink(destination: PaintView()) {
+                    Text("Paint")
+                        .foregroundColor(.white)
+                        .padding(25)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+
+                Spacer()
+                
+                NavigationLink(destination: LegalMapView()) {
+                    Text("Legal Map")
+                        .foregroundColor(.white)
+                        .padding(25)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+            }
+            .padding()
+
+            Spacer()
+            
+            Text("Contact us at alexanderpollard05@gmail.com")
+                .padding()
+                .background(Color.red)
+                .foregroundColor(.white)
+        }
+        .background(
+            Image("bg-head.png")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(height: 90)
+                .clipped()
+        )
+    }
+}
+
+struct HomeView: View {
+    var body: some View {
+        Text("Home View")
+    }
+}
+
+struct HistoryView: View {
+    var body: some View {
+        Text("History View")
+    }
+}
+
+struct IdeasView: View {
+    var body: some View {
+        Text("Ideas View")
+    }
+}
+
+struct PaintView: View {
+    var body: some View {
+        Text("Paint View")
+    }
+}
+
+struct LegalMapView: View {
+    var body: some View {
+        Text("Legal Map View")
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+steps:
+  - uses: actions/checkout@v4
+  - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
+    with:
+      swift-version: "5.3.3"
+  - name: Build
+    run: swift build
+  - name: Run tests
+    run: swift test
